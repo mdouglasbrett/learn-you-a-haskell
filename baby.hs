@@ -27,3 +27,7 @@ factorial n = product [1..n]
 
 circumference :: Float -> Float
 circumference r = 2 * pi * r
+
+-- Double is a float with double the precision
+circumference' :: Double -> Double
+circumference' r = 2 * pi * r
