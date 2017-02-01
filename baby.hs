@@ -22,8 +22,10 @@ rightTriangles = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 =
 
 rightTriangles' = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a + b + c == 24 ]
 
-factorial :: Integer -> Integer
-factorial n = product [1..n]
+-- Redefine factorial as a recursive, pattern matching function
+factorial :: (Integral a) => a -> a
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
 
 circumference :: Float -> Float
 circumference r = 2 * pi * r
@@ -31,3 +33,10 @@ circumference r = 2 * pi * r
 -- Double is a float with double the precision
 circumference' :: Double -> Double
 circumference' r = 2 * pi * r
+
+lucky :: (Integral a) => a -> String
+lucky 7 = "LUCKY SEVEN!"
+lucky x = "You're SOL, dude"
+
+addVectors :: (Num a) => (a, a) -> (a, a) -> (a, a)
+addVectors a b = (fst a + fst b, snd a + snd b)
