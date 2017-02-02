@@ -40,3 +40,23 @@ lucky x = "You're SOL, dude"
 
 addVectors :: (Num a) => (a, a) -> (a, a) -> (a, a)
 addVectors a b = (fst a + fst b, snd a + snd b)
+
+-- with pattern matching
+addVectors' :: (Num a) => (a, a) -> (a, a) -> (a, a)
+addVectors' (x1, y1) (x2, y2) = (x1 + x2, y1 + y2)
+
+-- pattern matching helpers
+
+first :: (a, b, c) -> a
+first (x,_,_) = x
+
+second :: (a, b, c) -> b
+second (_,y,_) = y
+
+third :: (a, b, c) -> c
+third (_,_,z) = z
+
+-- alternate 'head' using pattern matching
+head' :: [a] -> a
+head' [] = error "Cannot call head on an empty list"
+head' (x:_) = x
